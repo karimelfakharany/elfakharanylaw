@@ -224,8 +224,8 @@ export const content = {
         bio: "Mr. Gamal Elfakharany offers comprehensive legal counsel, distinguished by precision, practicality, and a strong commitment to client interests.",
       },
       values: [
-        { t: "Email", d: "Honest counsel — even when it is not what the client wishes to hear." },
-        { t: "Tel", d: "A working command of Egyptian law built over decades of practice." },
+        { t: "Email", d: "gamalelfakharany@elfakharanylaw.com" },
+        { t: "Tel", d: "+20" },
       ],
     },
     ar: {
