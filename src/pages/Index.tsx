@@ -35,7 +35,7 @@ const Index = () => {
     alternateName: "مكتب الفخراني للمحاماة والاستشارات القانونية",
     description: "Cairo-based law firm offering corporate, civil, family, real estate, immigration and contract legal services across Egypt for over 40 years.",
     url: "https://elfakharany-law.com",
-    telephone: "+20-000-000-0000",
+    telephone: "+201000200363",
     email: "info@elfakharany-law.com",
     areaServed: [{ "@type": "City", name: "Cairo" }, { "@type": "Country", name: "Egypt" }],
     address: { "@type": "PostalAddress", addressLocality: "Cairo", addressCountry: "EG" },

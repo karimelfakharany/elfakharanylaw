@@ -225,7 +225,7 @@ export const content = {
       },
       values: [
         { t: "Email", d: "gamalelfakharany@elfakharanylaw.com" },
-        { t: "Tel", d: "+20" },
+        { t: "Tel", d: "+201000200363" },
       ],
     },
     ar: {
@@ -248,7 +248,7 @@ export const content = {
       },
       values: [
         { t: "البريد الإلكتروني", d: "gamalelfakharany@elfakharanylaw.com" },
-        { t: "رقم الهاتف", d: "+20" },
+        { t: "رقم الهاتف", d: "+201000200363" },
       ],
     },
   },
