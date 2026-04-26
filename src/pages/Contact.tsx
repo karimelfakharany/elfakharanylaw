@@ -214,7 +214,7 @@ const Contact = () => {
                 <li className="flex items-start gap-4">
                   <MapPin />
                   <a
-                    href="https://www.google.com/maps?q=38+Aly+Amin+Street,+Nasr+City,+Cairo,+Egypt"
+                    href="https://www.google.com/maps/place/%D9%85%D9%83%D8%AA%D8%A8+%D8%A7%D9%84%D9%81%D8%AE%D8%B1%D8%A7%D9%86%D9%8A+%D9%84%D9%84%D9%85%D8%AD%D8%A7%D9%85%D8%A7%D8%A9+%D9%88+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA+%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9%E2%80%AD/@30.0536713,31.3344886,15z/data=!4m6!3m5!1s0x14583f00122f3b53:0xbbd1818ada10454b!8m2!3d30.0536713!4d31.3344886!16s%2Fg%2F11vw_2cq7t!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline"

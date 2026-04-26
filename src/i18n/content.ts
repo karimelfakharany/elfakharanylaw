@@ -273,7 +273,7 @@ export const content = {
       submit: "إرسال الاستفسار", sent: "شكرًا لتواصلك. سنردّ عليك في أقرب وقت.",
       info: "بيانات المكتب",
       addressLabel: "العنوان", addressValue: "٣٨ شارع علي امين متفرع من شارع مصطفي النحاس , حي السابع , مدينة نصر , القاهرة ",
-      phoneLabel: "الهاتف", phoneValue: "0000 000 000 (0) 20+",
+      phoneLabel: "الهاتف", phoneValue: "+201000200363",
       emailLabel: "البريد الإلكتروني", emailValue: "info@elfakharanylaw.com",
       hoursLabel: "ساعات العمل", hoursValue: "السبت – الاربعاء · 09:00 – 17:00",
     },
