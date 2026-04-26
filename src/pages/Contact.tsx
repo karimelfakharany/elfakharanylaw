@@ -33,15 +33,22 @@ const Contact = () => {
       .join("&");
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const result = schema.safeParse(form);
-    if (!result.success) {
-      toast.error(lang === "en" ? "Please check your details and try again." : "يرجى التحقّق من البيانات والمحاولة مرة أخرى.");
-      return;
-    }
+  const formData = new FormData(e.currentTarget);
 
-    setSubmitting(true);
+  try {
+    await fetch("/", {
+      method: "POST",
+      body: formData,
+    });
+
+    console.log("Submitted to Netlify");
+
+  } catch (error) {
+    console.error(error);
+  }
+};
 
     try {
       await fetch("/", {
