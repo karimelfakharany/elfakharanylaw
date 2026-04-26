@@ -22,7 +22,7 @@ const schema = z.object({
 const Contact = () => {
   const { lang } = useLang();
 
-  // ✅ FIX: SAFE LANGUAGE HANDLING (NO CRASH)
+  // ✅ SAFE LANGUAGE (NO CRASH)
   const safeLang = lang || "en";
   const t = content.contact[safeLang] || content.contact.en;
 
@@ -56,7 +56,8 @@ const Contact = () => {
     setSubmitting(true);
 
     try {
-      await fetch("/", {
+      // ✅ FIXED (NO WHITE SCREEN)
+      await fetch("/?no-cache=1", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
@@ -81,7 +82,6 @@ const Contact = () => {
     setSubmitting(false);
   };
 
-  // ✅ FIXED DOMAIN (NO DASH)
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
@@ -95,7 +95,6 @@ const Contact = () => {
     },
   };
 
-  // ✅ FIXED DOMAIN (NO DASH)
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -237,7 +236,6 @@ const Contact = () => {
               </p>
 
               <ul className="space-y-6">
-
                 <li className="flex items-start gap-4">
                   <MapPin />
                   <a href="https://www.google.com/maps/place/..." target="_blank" rel="noopener noreferrer">
@@ -259,7 +257,6 @@ const Contact = () => {
                   <Clock />
                   <div>{t.hoursValue}</div>
                 </li>
-
               </ul>
             </div>
           </aside>
