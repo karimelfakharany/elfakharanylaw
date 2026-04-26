@@ -60,6 +60,7 @@ const Contact = () => {
       });
 
       toast.success(t.sent);
+
       setForm({
         name: "",
         email: "",
@@ -84,6 +85,7 @@ const Contact = () => {
         descAr="تواصل مع فريقنا القانوني في القاهرة. استشارات سرّية للأفراد والشركات في جميع أنحاء مصر. نردّ على معظم الاستفسارات خلال يوم عمل واحد."
       />
 
+      {/* HERO */}
       <section className="pt-40 pb-16 lg:pt-48 lg:pb-20 hero-gradient">
         <div className="container-prose max-w-4xl">
           <p className="eyebrow mb-6 text-accent">
@@ -99,9 +101,10 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* FORM + INFO */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container-prose grid lg:grid-cols-12 gap-12 lg:gap-16">
-          
+
           {/* FORM */}
           <div className="lg:col-span-7">
             <form
@@ -206,25 +209,49 @@ const Contact = () => {
               </p>
 
               <ul className="space-y-6">
+
+                {/* 📍 LOCATION */}
                 <li className="flex items-start gap-4">
                   <MapPin />
-                  <div>{t.addressValue}</div>
+                  <a
+                    href="https://www.google.com/maps?q=38+Aly+Amin+Street,+Nasr+City,+Cairo,+Egypt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {t.addressValue}
+                  </a>
                 </li>
 
+                {/* 📞 PHONE */}
                 <li className="flex items-start gap-4">
                   <Phone />
-                  <div>{t.phoneValue}</div>
+                  <a
+                    href="tel:+201000200363"
+                    className="hover:underline"
+                    dir="ltr"
+                  >
+                    {t.phoneValue}
+                  </a>
                 </li>
 
+                {/* ✉️ EMAIL */}
                 <li className="flex items-start gap-4">
                   <Mail />
-                  <div>{t.emailValue}</div>
+                  <a
+                    href="mailto:info@elfakharanylaw.com"
+                    className="hover:underline"
+                  >
+                    {t.emailValue}
+                  </a>
                 </li>
 
+                {/* 🕒 HOURS */}
                 <li className="flex items-start gap-4">
                   <Clock />
                   <div>{t.hoursValue}</div>
                 </li>
+
               </ul>
             </div>
           </aside>
