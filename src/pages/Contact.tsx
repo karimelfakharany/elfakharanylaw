@@ -22,6 +22,7 @@ const schema = z.object({
 const Contact = () => {
   const { lang } = useLang();
   const t = content.contact[lang];
+
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -75,14 +76,49 @@ const Contact = () => {
     setSubmitting(false);
   };
 
+  // ✅ LOCAL BUSINESS SCHEMA
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    name: "Elfakharany Law Firm",
+    url: "https://elfakharany-law.com/contact",
+    telephone: "+201000200363",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Cairo",
+      addressCountry: "EG",
+    },
+  };
+
+  // ✅ BREADCRUMB SCHEMA
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: lang === "ar" ? "الرئيسية" : "Home",
+        item: "https://elfakharany-law.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: lang === "ar" ? "تواصل معنا" : "Contact",
+        item: "https://elfakharany-law.com/contact",
+      },
+    ],
+  };
+
   return (
     <PageLayout>
       <SEO
         path="/contact"
         titleEn="Contact"
-        titleAr="تواصل مع مكتب الفخراني للمحاماة في القاهرة، مصر"
-        descEn="Reach our legal team in Cairo. Confidential consultations for individuals and businesses across Egypt. Most enquiries answered within one business day."
-        descAr="تواصل مع فريقنا القانوني في القاهرة. استشارات سرّية للأفراد والشركات في جميع أنحاء مصر. نردّ على معظم الاستفسارات خلال يوم عمل واحد."
+        titleAr="تواصل معنا"
+        descEn="Contact Elfakharany Law Firm in Cairo, Egypt. Speak with a lawyer and request a confidential legal consultation."
+        descAr="تواصل مع مكتب الفخراني للمحاماة في القاهرة، مصر، واحصل على استشارة قانونية بسرية تامة."
+        jsonLd={[localBusinessSchema, breadcrumbSchema]}
       />
 
       {/* HERO */}
@@ -92,9 +128,11 @@ const Contact = () => {
             <span className="gold-divider me-3" />
             {t.eyebrow}
           </p>
+
           <h1 className="heading-display text-primary-foreground mb-6">
             {t.title}
           </h1>
+
           <p className="text-xl text-primary-foreground/80 leading-relaxed">
             {t.lead}
           </p>
@@ -124,9 +162,7 @@ const Contact = () => {
                     name="name"
                     required
                     value={form.name}
-                    onChange={(e) =>
-                      onChange("name", e.target.value)
-                    }
+                    onChange={(e) => onChange("name", e.target.value)}
                   />
                 </div>
 
@@ -138,9 +174,7 @@ const Contact = () => {
                     type="email"
                     required
                     value={form.email}
-                    onChange={(e) =>
-                      onChange("email", e.target.value)
-                    }
+                    onChange={(e) => onChange("email", e.target.value)}
                   />
                 </div>
               </div>
@@ -152,9 +186,7 @@ const Contact = () => {
                     id="phone"
                     name="phone"
                     value={form.phone}
-                    onChange={(e) =>
-                      onChange("phone", e.target.value)
-                    }
+                    onChange={(e) => onChange("phone", e.target.value)}
                   />
                 </div>
 
@@ -165,9 +197,7 @@ const Contact = () => {
                     name="subject"
                     required
                     value={form.subject}
-                    onChange={(e) =>
-                      onChange("subject", e.target.value)
-                    }
+                    onChange={(e) => onChange("subject", e.target.value)}
                   />
                 </div>
               </div>
@@ -180,18 +210,11 @@ const Contact = () => {
                   required
                   rows={6}
                   value={form.message}
-                  onChange={(e) =>
-                    onChange("message", e.target.value)
-                  }
+                  onChange={(e) => onChange("message", e.target.value)}
                 />
               </div>
 
-              <Button
-                type="submit"
-                variant="gold"
-                size="lg"
-                disabled={submitting}
-              >
+              <Button type="submit" variant="gold" size="lg" disabled={submitting}>
                 <Send className="h-4 w-4" />
                 {submitting
                   ? (lang === "en" ? "Sending..." : "جارٍ الإرسال...")
@@ -210,43 +233,23 @@ const Contact = () => {
 
               <ul className="space-y-6">
 
-                {/* 📍 LOCATION */}
                 <li className="flex items-start gap-4">
                   <MapPin />
-                  <a
-                    href="https://www.google.com/maps/place/%D9%85%D9%83%D8%AA%D8%A8+%D8%A7%D9%84%D9%81%D8%AE%D8%B1%D8%A7%D9%86%D9%8A+%D9%84%D9%84%D9%85%D8%AD%D8%A7%D9%85%D8%A7%D8%A9+%D9%88+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA+%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9%E2%80%AD/@30.0536713,31.3344886,15z/data=!4m6!3m5!1s0x14583f00122f3b53:0xbbd1818ada10454b!8m2!3d30.0536713!4d31.3344886!16s%2Fg%2F11vw_2cq7t!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
+                  <a href="https://www.google.com/maps/place/..." target="_blank" rel="noopener noreferrer">
                     {t.addressValue}
                   </a>
                 </li>
 
-                {/* 📞 PHONE */}
                 <li className="flex items-start gap-4">
                   <Phone />
-                  <a
-                    href="tel:+201000200363"
-                    className="hover:underline"
-                    dir="ltr"
-                  >
-                    {t.phoneValue}
-                  </a>
+                  <a href="tel:+201000200363">{t.phoneValue}</a>
                 </li>
 
-                {/* ✉️ EMAIL */}
                 <li className="flex items-start gap-4">
                   <Mail />
-                  <a
-                    href="mailto:info@elfakharanylaw.com"
-                    className="hover:underline"
-                  >
-                    {t.emailValue}
-                  </a>
+                  <a href="mailto:info@elfakharanylaw.com">{t.emailValue}</a>
                 </li>
 
-                {/* 🕒 HOURS */}
                 <li className="flex items-start gap-4">
                   <Clock />
                   <div>{t.hoursValue}</div>

@@ -10,14 +10,48 @@ const About = () => {
   const { lang, isRTL } = useLang();
   const t = content.about[lang];
 
+  // ✅ PERSON SCHEMA
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Gamal Elfakharany",
+    alternateName: "جمال الفخراني",
+    jobTitle: "Lawyer",
+    worksFor: {
+      "@type": "Organization",
+      name: "Elfakharany Law Firm",
+    },
+  };
+
+  // ✅ BREADCRUMB SCHEMA
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: lang === "ar" ? "الرئيسية" : "Home",
+        item: "https://elfakharany-law.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: lang === "ar" ? "عن المكتب" : "About",
+        item: "https://elfakharany-law.com/about",
+      },
+    ],
+  };
+
   return (
     <PageLayout>
       <SEO
         path="/about"
-        titleEn="About Elfakharany Law Firm"
-        titleAr="عن مكتب الفخراني للمحاماة | أكثر من 40 عامًا"
-        descEn="Founded by Gamal Elfakharany, Elfakharany Law Firm has served clients across Cairo and Egypt for more than 40 years with discretion and excellence."
-        descAr="أسّسه الأستاذ جمال الفخراني، ويخدم مكتب الفخراني عملاءه في القاهرة وجميع أنحاء مصر لأكثر من 40 عامًا بسرية وتميّز."
+        titleEn="About"
+        titleAr="عن المكتب"
+        descEn="Learn about Elfakharany Law Firm in Cairo, Egypt, founded in 1984 by Gamal Elfakharany, providing trusted legal services across Egypt."
+        descAr="تعرف على مكتب الفخراني للمحاماة في القاهرة، مصر، الذي تأسس عام 1984 على يد المحامي جمال الفخراني، ويقدم خدمات قانونية موثوقة في جميع أنحاء مصر."
+        jsonLd={[personSchema, breadcrumbSchema]} // ✅ BOTH SCHEMAS HERE
       />
 
       {/* Hero */}
@@ -47,7 +81,6 @@ const About = () => {
               {lang === "en" ? "The Founding Attorney" : "المحامي المؤسّس"}
             </p>
 
-            {/* 🔥 STRONG TITLE */}
             <h3 className="font-serif text-4xl lg:text-5xl font-bold text-primary mb-3 tracking-[0.03em]">
               {t.lawyer.name}
             </h3>
@@ -85,6 +118,13 @@ const About = () => {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* Hidden SEO */}
+          <div className="hidden">
+            {lang === "ar"
+              ? "مكتب الفخراني للمحاماة، جمال الفخراني، محامي في القاهرة، مكتب محاماة في مصر، خدمات قانونية في مصر"
+              : "Elfakharany Law Firm, Gamal Elfakharany, lawyer in Cairo Egypt, law firm Egypt, legal services Egypt"}
           </div>
 
         </div>
