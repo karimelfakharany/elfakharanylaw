@@ -21,7 +21,12 @@ const schema = z.object({
 
 const Contact = () => {
   const { lang } = useLang();
-  const t = content.contact[lang];
+
+  // ✅ FIX: SAFE LANGUAGE HANDLING (NO CRASH)
+  const safeLang = lang || "en";
+  const t = content.contact[safeLang] || content.contact.en;
+
+  if (!t) return null;
 
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
@@ -41,7 +46,7 @@ const Contact = () => {
     const result = schema.safeParse(form);
     if (!result.success) {
       toast.error(
-        lang === "en"
+        safeLang === "en"
           ? "Please check your details and try again."
           : "يرجى التحقّق من البيانات والمحاولة مرة أخرى."
       );
@@ -76,12 +81,12 @@ const Contact = () => {
     setSubmitting(false);
   };
 
-  // ✅ LOCAL BUSINESS SCHEMA
+  // ✅ FIXED DOMAIN (NO DASH)
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
     name: "Elfakharany Law Firm",
-    url: "https://elfakharany-law.com/contact",
+    url: "https://elfakharanylaw.com/contact",
     telephone: "+201000200363",
     address: {
       "@type": "PostalAddress",
@@ -90,7 +95,7 @@ const Contact = () => {
     },
   };
 
-  // ✅ BREADCRUMB SCHEMA
+  // ✅ FIXED DOMAIN (NO DASH)
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -98,14 +103,14 @@ const Contact = () => {
       {
         "@type": "ListItem",
         position: 1,
-        name: lang === "ar" ? "الرئيسية" : "Home",
-        item: "https://elfakharany-law.com/",
+        name: safeLang === "ar" ? "الرئيسية" : "Home",
+        item: "https://elfakharanylaw.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: lang === "ar" ? "تواصل معنا" : "Contact",
-        item: "https://elfakharany-law.com/contact",
+        name: safeLang === "ar" ? "تواصل معنا" : "Contact",
+        item: "https://elfakharanylaw.com/contact",
       },
     ],
   };
@@ -217,7 +222,7 @@ const Contact = () => {
               <Button type="submit" variant="gold" size="lg" disabled={submitting}>
                 <Send className="h-4 w-4" />
                 {submitting
-                  ? (lang === "en" ? "Sending..." : "جارٍ الإرسال...")
+                  ? (safeLang === "en" ? "Sending..." : "جارٍ الإرسال...")
                   : t.submit}
               </Button>
             </form>
