@@ -79,7 +79,7 @@ const Contact = () => {
     <PageLayout>
       <SEO
         path="/contact"
-        titleEn="Contact Elfakharany Law Firm in Cairo, Egypt"
+        titleEn="Contact"
         titleAr="تواصل مع مكتب الفخراني للمحاماة في القاهرة، مصر"
         descEn="Reach our legal team in Cairo. Confidential consultations for individuals and businesses across Egypt. Most enquiries answered within one business day."
         descAr="تواصل مع فريقنا القانوني في القاهرة. استشارات سرّية للأفراد والشركات في جميع أنحاء مصر. نردّ على معظم الاستفسارات خلال يوم عمل واحد."

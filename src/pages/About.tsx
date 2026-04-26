@@ -14,7 +14,7 @@ const About = () => {
     <PageLayout>
       <SEO
         path="/about"
-        titleEn="About Elfakharany Law Firm | 40+ Years of Experience"
+        titleEn="About Elfakharany Law Firm"
         titleAr="عن مكتب الفخراني للمحاماة | أكثر من 40 عامًا"
         descEn="Founded by Gamal Elfakharany, Elfakharany Law Firm has served clients across Cairo and Egypt for more than 40 years with discretion and excellence."
         descAr="أسّسه الأستاذ جمال الفخراني، ويخدم مكتب الفخراني عملاءه في القاهرة وجميع أنحاء مصر لأكثر من 40 عامًا بسرية وتميّز."

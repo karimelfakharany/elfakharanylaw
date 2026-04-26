@@ -13,6 +13,12 @@ import {
 import { useLang } from "@/i18n/LanguageContext";
 import { content } from "@/i18n/content";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { SEO } from "@/components/SEO";
 import { PageLayout } from "@/components/layout/PageLayout";
 import heroImg from "@/assets/hero-justice.jpg";
@@ -32,6 +38,7 @@ const Index = () => {
   const hero = content.hero[lang];
   const intro = content.intro[lang];
   const practice = content.practice[lang];
+  const faq = content.faq[lang];
 
   return (
     <PageLayout>
@@ -50,92 +57,94 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-overlay" />
         </div>
 
-        <div className="container-prose relative z-10 pt-32 pb-20">
+        <div className="container-prose relative z-10 pt-32 pb-20 grid lg:grid-cols-12 gap-10 items-center">
 
-          {/* eyebrow */}
-          <p className="text-xs tracking-[0.25em] text-yellow-400 uppercase mb-4">
-            {hero.eyebrow}
-          </p>
-
-          {/* title */}
-          <h1 className="heading-display text-primary-foreground mb-6">
-            {hero.title}
-          </h1>
-
-          {/* subtitle (if exists) */}
-          {hero.subtitle && (
-            <p className="text-lg text-primary-foreground/80 mb-6 max-w-xl">
-              {hero.subtitle}
+          <div className="lg:col-span-8">
+            <p className="eyebrow mb-6">
+              <span className="gold-divider me-3" />
+              {hero.eyebrow}
             </p>
-          )}
 
-          {/* button */}
-          <Button asChild variant="gold">
-            <Link to="/contact">
-              {hero.ctaPrimary}
-              <ArrowRight className={isRTL ? "rotate-180" : ""} />
-            </Link>
-          </Button>
+            <h1 className="heading-display text-primary-foreground mb-8 max-w-4xl">
+              {hero.title}
+            </h1>
 
-          {/* ✅ HERO STATS (WAS MISSING) */}
-          <div className="flex gap-10 mt-10 text-white">
-            <div>
-              <p className="text-2xl font-bold">{hero.stat1}</p>
-              <p className="text-sm opacity-70">{hero.stat1Label}</p>
-            </div>
+            {hero.subtitle && (
+              <p className="text-lg text-primary-foreground/80 max-w-2xl leading-relaxed mb-10">
+                {hero.subtitle}
+              </p>
+            )}
 
-            <div>
-              <p className="text-2xl font-bold">{hero.stat2}</p>
-              <p className="text-sm opacity-70">{hero.stat2Label}</p>
-            </div>
-
-            <div>
-              <p className="text-2xl font-bold">{hero.stat3}</p>
-              <p className="text-sm opacity-70">{hero.stat3Label}</p>
+            {/* ✅ FIXED BUTTON (ONLY ONE CTA) */}
+            <div className="flex gap-4 justify-start">
+              <Button asChild variant="gold">
+                <Link to="/contact">
+                  {hero.ctaPrimary}
+                  <ArrowRight className={isRTL ? "rotate-180" : ""} />
+                </Link>
+              </Button>
             </div>
           </div>
+
+          {/* STATS */}
+          <div className="lg:col-span-4">
+            <div className="grid grid-cols-3 lg:grid-cols-1 gap-px bg-primary-foreground/15 border border-primary-foreground/15">
+
+              {[hero.stat1, hero.stat2, hero.stat3].map((s, i) => {
+                const labels = [
+                  hero.stat1Label,
+                  hero.stat2Label,
+                  hero.stat3Label,
+                ];
+                return (
+                  <div key={i} className="bg-primary p-6 lg:p-8">
+                    <div className="font-serif text-3xl lg:text-4xl text-accent mb-1">
+                      {s}
+                    </div>
+                    <div className="text-xs lg:text-sm text-primary-foreground/70 uppercase tracking-wider">
+                      {labels[i]}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* INTRO */}
-      <section className="py-20 bg-background">
-        <div className="container-prose max-w-3xl">
+      <section className="py-24 bg-background">
+        <div className="container-prose grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-8">
+            <p className="eyebrow mb-6">{intro.eyebrow}</p>
 
-          <p className="text-sm text-yellow-500 uppercase tracking-widest mb-3">
-            {intro.eyebrow}
-          </p>
+            <h2 className="heading-section mb-6 max-w-2xl">
+              {intro.title}
+            </h2>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            {intro.title}
-          </h2>
-
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            {intro.body}
-          </p>
-
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+              {intro.body}
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* PRACTICE AREAS HEADER (WAS MISSING) */}
-      <section className="py-20 bg-background">
-        <div className="container-prose text-center mb-12">
+      {/* PRACTICE AREAS */}
+      <section className="py-24 bg-background">
+        <div className="container-prose text-center mb-14">
+          <p className="eyebrow mb-4">{practice.eyebrow}</p>
 
-          <p className="text-sm text-yellow-500 uppercase tracking-widest mb-3">
-            {practice.eyebrow}
-          </p>
-
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="heading-section mb-4">
             {practice.title}
           </h2>
 
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {practice.subtitle}
           </p>
-
         </div>
 
-        {/* PRACTICE GRID */}
-        <div className="container-prose grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="container-prose grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {content.practice.areas.map((a) => {
             const Icon =
               areaIcons[a.slug as keyof typeof areaIcons] || Scale;
@@ -143,15 +152,74 @@ const Index = () => {
             const t = a[lang];
 
             return (
-              <div key={a.slug} className="p-6 border rounded hover:shadow-lg transition">
-                <Icon className="h-6 w-6 mb-4 text-yellow-500" />
-                <h3 className="text-lg font-bold mb-2">{t.title}</h3>
-                <p className="text-muted-foreground">{t.short}</p>
+              <div
+                key={a.slug}
+                className="p-8 border border-border bg-card rounded-sm shadow-card hover:shadow-elegant transition-all duration-300"
+              >
+                <Icon className="h-6 w-6 mb-5 text-accent" />
+
+                <h3 className="font-serif text-[20px] leading-snug mb-3 text-foreground tracking-tight">
+                  {t.title}
+                </h3>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  {t.short}
+                </p>
               </div>
             );
           })}
         </div>
       </section>
+
+      {/* FAQ */}
+      <section className="py-28 bg-background">
+        <div className="container-prose max-w-4xl">
+
+          <p className="eyebrow mb-4 text-center">
+            {lang === "ar" ? "إجابات قانونية" : "Legal Guidance"}
+          </p>
+
+          <h2 className="heading-section text-center mb-6">
+            {lang === "ar" ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
+          </h2>
+
+          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-14">
+            {lang === "ar"
+              ? "إجابات واضحة لأهم الاستفسارات القانونية من عملائنا."
+              : "Clear answers to the most common legal enquiries from our clients."}
+          </p>
+
+          <Accordion type="single" collapsible className="w-full border-t border-border">
+            {faq.items.map((item, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="border-b border-border"
+              >
+                <AccordionTrigger
+                  className="
+                    text-left
+                    font-serif
+                    text-[20px]
+                    leading-snug
+                    py-6
+                    hover:no-underline
+                    tracking-tight
+                  "
+                >
+                  {item.q}
+                </AccordionTrigger>
+
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 pr-6 text-base">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+        </div>
+      </section>
+
     </PageLayout>
   );
 };

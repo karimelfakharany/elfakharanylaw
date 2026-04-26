@@ -44,7 +44,7 @@ const PracticeAreas = () => {
     <PageLayout>
       <SEO
         path="/practice-areas"
-        titleEn="Practice Areas | Corporate, Civil, Family & More — Cairo Lawyer"
+        titleEn="Practice Areas"
         titleAr="مجالات العمل | الشركات، المدني، الأسرة والمزيد — محامي القاهرة"
         descEn="Specialized legal services in Cairo and across Egypt: corporate law, civil litigation, family law, real estate, immigration and contract law."
         descAr="خدمات قانونية متخصّصة في القاهرة وجميع أنحاء مصر: قانون الشركات، التقاضي المدني، الأسرة، العقارات، الهجرة، والعقود."
