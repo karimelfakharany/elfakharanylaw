@@ -7,25 +7,15 @@ import {
   Home as HomeIcon,
   Plane,
   FileSignature,
-  Award,
-  ShieldCheck,
   Users,
-  Sparkles,
 } from "lucide-react";
 
 import { useLang } from "@/i18n/LanguageContext";
 import { content } from "@/i18n/content";
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { SEO } from "@/components/SEO";
 import { PageLayout } from "@/components/layout/PageLayout";
 import heroImg from "@/assets/hero-justice.jpg";
-import cairoImg from "@/assets/cairo-skyline.jpg";
 
 const areaIcons: Record<string, ElementType> = {
   corporate: Building2,
@@ -38,12 +28,9 @@ const areaIcons: Record<string, ElementType> = {
 
 const Index = () => {
   const { lang, isRTL } = useLang();
+
   const hero = content.hero[lang];
-  const intro = content.intro[lang];
-  const practice = content.practice[lang];
-  const why = content.why[lang];
-  const faq = content.faq[lang];
-  const cta = content.cta[lang];
+  const intro = content.intro[lang]; // ✅ added
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -69,22 +56,9 @@ const Index = () => {
       name: "Gamal Elfakharany",
       jobTitle: "Founding Attorney",
     },
-    foundingDate: "1989",
+    foundingDate: "1984",
     priceRange: "$$$",
     openingHours: "Su-Th 09:00-18:00",
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: content.faq.en.items.map((it) => ({
-      "@type": "Question",
-      name: it.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: it.a,
-      },
-    })),
   };
 
   return (
@@ -93,9 +67,9 @@ const Index = () => {
         path="/"
         titleEn="Elfakharany Law Firm"
         titleAr="مكتب الفخراني للمحاماة و الاستشارات القانونية"
-        descEn="Cairo law firm with 40+ years of experience. Corporate, civil, family, real estate, immigration & contract law services across Egypt. Book a consultation."
-        descAr="مكتب محاماة في القاهرة بخبرة تتجاوز 40 عامًا. خدمات قانونية للشركات والتقاضي المدني والأسرة والعقارات والهجرة والعقود في جميع أنحاء مصر. احجز استشارتك."
-        jsonLd={[localBusinessSchema, faqSchema]}
+        descEn="A Law Firm with 40+ years of experience. Serving Clients across Egypt."
+        descAr="مكتب محاماة في القاهرة بخبرة تتجاوز 40 عامًا."
+        jsonLd={[localBusinessSchema]}
       />
 
       {/* HERO */}
@@ -110,15 +84,37 @@ const Index = () => {
         </div>
 
         <div className="container-prose relative z-10 pt-32 pb-20">
+          <p className="text-xs tracking-[0.2em] text-yellow-400 uppercase mb-4">
+            {hero.eyebrow}
+          </p>
+
           <h1 className="heading-display text-primary-foreground mb-6">
             {hero.title}
           </h1>
+
           <Button asChild variant="gold">
             <Link to="/contact">
               {hero.ctaPrimary}
               <ArrowRight className={isRTL ? "rotate-180" : ""} />
             </Link>
           </Button>
+        </div>
+      </section>
+
+      {/* ✅ INTRO SECTION (FIXED) */}
+      <section className="py-20 bg-background">
+        <div className="container-prose max-w-3xl">
+          <p className="text-sm text-yellow-500 uppercase tracking-widest mb-3">
+            {intro.eyebrow}
+          </p>
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            {intro.title}
+          </h2>
+
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            {intro.body}
+          </p>
         </div>
       </section>
 
