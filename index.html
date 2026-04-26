@@ -28,7 +28,7 @@
       content="law firm in Cairo, lawyer in Egypt, legal services Cairo, محامي في القاهرة, مكتب محاماة, قانون الشركات, الفخراني"
     />
 
-    <!-- ✅ Open Graph (for sharing) -->
+    <!-- ✅ Open Graph -->
     <meta
       property="og:title"
       content="Elfakharany Law Firm | مكتب الفخراني للمحاماة والاستشارات القانونية"
@@ -57,7 +57,7 @@
     <link rel="alternate" href="https://elfakharanylaw.com/en" hreflang="en" />
     <link rel="alternate" href="https://elfakharanylaw.com/" hreflang="x-default" />
 
-    <!-- ✅ Structured Data (Logo + Brand) -->
+    <!-- ✅ Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -82,6 +82,17 @@
   </head>
 
   <body>
+
+    <!-- ✅ NETLIFY FORM (FIXED LOCATION - DO NOT REMOVE) -->
+    <form name="contact" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
