@@ -261,7 +261,7 @@ export const content = {
       submit: "Send Enquiry", sent: "Thank you. We will be in touch shortly.",
       info: "Office Information",
       addressLabel: "Office", addressValue: "38 Aly Amin Street, Off Mostafa El Nahhas St, 7th District, Nasr City, Cairo, Egypt",
-      phoneLabel: "Phone", phoneValue: "+20 ",
+      phoneLabel: "Phone", phoneValue: "+201000200363 ",
       emailLabel: "Email", emailValue: "info@elfakharanylaw.com",
       hoursLabel: "Hours", hoursValue: "Saturday – Wednesday · 09:00 – 17:00",
     },
