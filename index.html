@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- ✅ Favicon (FIXED FOR GOOGLE LOGO) -->
+    <!-- ❌ KEEP YOUR FAVICONS (UNCHANGED) -->
     <link rel="icon" href="/elf.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/elf.png" sizes="192x192" type="image/png">
     <link rel="apple-touch-icon" href="/elf.png">
@@ -13,12 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0e1d3d" />
 
+    <!-- ✅ SEO FIX (IMPORTANT) -->
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://elfakharanylaw.com/" />
+
     <!-- ✅ Title -->
     <title>
       Elfakharany Law Firm | مكتب الفخراني للمحاماة والاستشارات القانونية
     </title>
 
-    <!-- ✅ SEO Description (Arabic + English) -->
+    <!-- ✅ SEO Description -->
     <meta
       name="description"
       content="Founded in 1984, Elfakharany Law Firm provides trusted legal services across Egypt. مكتب الفخراني للمحاماة والاستشارات القانونية يقدم خدمات قانونية متكاملة منذ عام 1984 بخبرة طويلة في مصر."
@@ -31,7 +35,9 @@
       content="law firm in Cairo, lawyer in Egypt, legal services Cairo, محامي في القاهرة, مكتب محاماة, قانون الشركات, الفخراني"
     />
 
-    <!-- ✅ Open Graph -->
+    <!-- ✅ OPEN GRAPH (IMPROVED) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://elfakharanylaw.com/" />
     <meta
       property="og:title"
       content="Elfakharany Law Firm | مكتب الفخراني للمحاماة والاستشارات القانونية"
@@ -40,11 +46,17 @@
       property="og:description"
       content="Founded in 1984, a leading Cairo-based law firm serving clients across Egypt."
     />
-    <meta property="og:type" content="website" />
+
+    <!-- 🔥 IMPORTANT: OG IMAGE -->
+    <meta property="og:image" content="https://elfakharanylaw.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Elfakharany Law Firm — Cairo, Egypt" />
+
     <meta property="og:locale" content="ar_EG" />
     <meta property="og:locale:alternate" content="en_US" />
 
-    <!-- ✅ Twitter -->
+    <!-- ✅ TWITTER (MATCH OG IMAGE) -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -54,20 +66,25 @@
       name="twitter:description"
       content="Trusted legal counsel for individuals and businesses across Egypt since 1984."
     />
+    <meta name="twitter:image" content="https://elfakharanylaw.com/og-image.jpg" />
 
     <!-- ✅ Language Targeting -->
     <link rel="alternate" href="https://elfakharanylaw.com/" hreflang="ar" />
     <link rel="alternate" href="https://elfakharanylaw.com/en" hreflang="en" />
     <link rel="alternate" href="https://elfakharanylaw.com/" hreflang="x-default" />
 
-    <!-- ✅ Structured Data -->
+    <!-- ✅ STRUCTURED DATA (UPGRADED 🔥) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "LegalService",
         "name": "Elfakharany Law Firm",
+        "alternateName": "مكتب الفخراني للمحاماة والاستشارات القانونية",
         "url": "https://elfakharanylaw.com",
-        "logo": "https://elfakharanylaw.com/elf.png"
+        "logo": "https://elfakharanylaw.com/elf.png",
+        "image": "https://elfakharanylaw.com/og-image.jpg",
+        "description": "Leading Cairo-based law firm established in 1984 providing corporate law, dispute resolution, and legal consultation services.",
+        "areaServed": "Egypt"
       }
     </script>
 
@@ -86,7 +103,7 @@
 
   <body>
 
-    <!-- ✅ NETLIFY FORM (DO NOT REMOVE) -->
+    <!-- NETLIFY FORM -->
     <form name="contact" method="POST" data-netlify="true" hidden>
       <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="name" />
