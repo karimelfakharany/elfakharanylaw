@@ -209,7 +209,7 @@ export const content = {
     en: {
       eyebrow: "About the Firm",
       title: "Four decades of advocacy. One unwavering standard.",
-      lead: "Elfakharany Law Firm was founded on a simple conviction: that exceptional legal counsel changes lives and businesses. From our office in Cairo, we have spent more than forty years standing beside our clients in their most consequential moments.",
+      lead: "Elfakharany Law Firm was founded on a simple conviction that exceptional legal counsel changes lives and businesses. From our office in Cairo, we have spent more than forty years standing beside our clients in their most consequential moments.",
       story: [
   "Gamal Elfakharany is the founder of Elfakharany Law Firm and a distinguished Egyptian lawyer with a career spanning more than four decades, during which he has earned a reputation as a trusted legal advisor across a wide spectrum of complex matters. His practice reflects a deep understanding of the Egyptian legal system, supported by extensive experience in navigating evolving regulatory and business environments. He is also recognized for his strong professional relationships within the legal and business community in Egypt, further enhancing his ability to effectively represent and advise his clients.",
 
@@ -231,7 +231,7 @@ export const content = {
     ar: {
       eyebrow: "عن المكتب",
       title: "اربعون عامًا تميز قانوني مستمر",
-      lead: "تأسّس مكتب الفخراني للمحاماة على قناعة واضحة: أن الاستشارة القانونية الاستثنائية تُغيّر حياة الأفراد ومسار الشركات. من مقرّنا في القاهرة، أمضينا أكثر من اربعون عامًا إلى جانب عملائنا في أهمّ لحظات حياتهم.",
+      lead: "تأسّس مكتب الفخراني للمحاماة على قناعة واضحة أن الاستشارة القانونية الاستثنائية تُغيّر حياة الأفراد ومسار الشركات. من مقرّنا في القاهرة، أمضينا أكثر من اربعون عامًا إلى جانب عملائنا في أهمّ لحظات حياتهم.",
       story: [
   "جمال الفخراني هو المؤسس لمكتب الفخراني للمحاماة، ويُعد من أبرز المحامين في مصر، حيث تمتد مسيرته المهنية لأكثر من أربعون عامًا، اكتسب خلالها سمعة راسخة كمستشار قانوني موثوق فيما يتخذ من إجراءات واسعة في القضايا المعقدة. وتعكس ممارسته فهماً عميقاً للنظام القانوني المصري، مدعوماً بخبرة واسعة في التعامل مع البيئات التنظيمية والتجارية المتغيرة. كما يُعرف بعلاقاته المهنية الواسعة داخل الأوساط القانونية وقطاع الأعمال في مصر، بما يعزز قدرته على تمثيل عملائه وتقديم المشورة لهم بكفاءة عالية.",
 
