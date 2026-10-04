@@ -5,20 +5,22 @@ import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "localhost", // ✅ FIXED (was "::")
+    host: "localhost",
     port: 8080,
     hmr: {
       overlay: false,
     },
     watch: {
-      usePolling: true, // ✅ forces file change detection
+      usePolling: true,
       interval: 100,
     },
   },
+
   plugins: [
     react(),
-    mode === "development" && componentTagger(),
-  ].filter(Boolean),
+    ...(mode === "development" ? [componentTagger()] : []),
+  ],
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
